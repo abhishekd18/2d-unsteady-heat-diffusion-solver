@@ -65,7 +65,6 @@ class triNode
         double x;   // x-coordinate
         double y;   // y-ccordinate
         double T;   // Temperature
-	int BN;     // flag the boundary nodes
 	int BC_type;// assign boundary type if it is boundary node
 
         // maybe some more variables can be necessary for the solver ?
@@ -74,7 +73,7 @@ class triNode
 
     public:
         /// DEFAULT CONSTRUCTOR
-        triNode(){x=0.0f; y=0.0f; T=0.0f; BN=0; BC_type=0;};
+        triNode(){x=0.0f; y=0.0f; T=0.0f; BC_type=0;};
 
         /// DESTRUCTOR
         ~triNode(){};
@@ -83,14 +82,12 @@ class triNode
         void setX  	(double value) {x = value;};
         void setY  	(double value) {y = value;};
         void setT  	(double value) {T = value;};
-        void setBN 	()	       {BN = -1;};
         void setBC_type (int value)    {BC_type = value;};
 
         /// GETTERS
         double getX()    {return x;};
         double getY()    {return y;};
         double getT()    {return T;};
-        int    getBN()   {return BN;};
         int getBC_type() {return BC_type;};
 };
 

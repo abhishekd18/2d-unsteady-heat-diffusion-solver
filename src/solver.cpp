@@ -284,6 +284,10 @@ void femSolver::applyBoundaryConditions(const int e)
 		///Set K
 		mesh->getElem(e)->setK(K);
 
+	    	///Flag the nodes on Dirichlet boundary and assign BC type
+	    	mesh->getNode(conn[0])->setBC_type(BCType);
+	    	mesh->getNode(conn[1])->setBC_type(BCType);
+
 	    }else if(BCType==2){	///Neumann
 
 		///Get the X and Y coordinates of the nodes on boundary
@@ -355,12 +359,6 @@ void femSolver::applyBoundaryConditions(const int e)
 		cout<<">Warning! Unknown boundary conditions!"<<endl;
 	    }
 
-	    ///Flag the nodes as boundary nodes and assign BC type
-	    mesh->getNode(conn[0])->setBN();
-	    mesh->getNode(conn[1])->setBN();
-	    mesh->getNode(conn[0])->setBC_type(BCType);
-	    mesh->getNode(conn[1])->setBC_type(BCType);
-
         }//End of if(FG!=0)
 
     }///Loop over faces end
@@ -420,7 +418,8 @@ void femSolver::explicitSolver()
 		///dt*(F + B - K*T)
 		for(int i=0;i<3;i++){
 			RHS_e[i] = dt*(mesh->getElem(e)->getF()[i] + mesh->getElem(e)->getB()[i] - RHS_e[i]);
-	    	}
+			//cout<<mesh->getElem(e)->getB()[i]<<"\t";
+	    	}//cout<<endl;
 
 		///Access lumped mass matrix 
 		std::memcpy(M_l,mesh->getElem(e)->getM(),3*sizeof(double));
@@ -441,7 +440,7 @@ void femSolver::explicitSolver()
 	///Loop through all nodes, calculate and set the temperature
 	for(int node=0;node<mesh->getNn();node++){
 		///Set the calculated temperature to the nodes which are not on the Dirichlet Boundary
-		if(mesh->getNode(node)->getBN()==0 || mesh->getNode(node)->getBC_type()==2 || mesh->getNode(node)->getBC_type()==3)
+		if(mesh->getNode(node)->getBC_type()!=1)
 			mesh->getNode(node)->setT(RHS[node]/M[node]);
 	}
 		
