@@ -1,0 +1,63 @@
+# Title of the simulation
+title Rectangular_Domain
+
+# Working directory "../run/" or "./"
+wdir ./
+
+# Name of the mesh information file
+minf ../../../trunk/mesh-Microchannel/mesh0/minf
+
+# Name of the coordinates file
+mxyz ../../../trunk/mesh-Microchannel/mesh0/mxyz
+
+# Name of the connectivity file 
+mien ../../../trunk/mesh-Microchannel/mesh0/mien
+
+# Name of the boundary information file 
+mrng ../../../trunk/mesh-Microchannel/mesh0/mrng
+
+# Name of the initial distribution file 
+data ../../../trunk/mesh-Microchannel/mesh0/data
+
+# Write restart file (e.g. data for next simulation)
+restart yes
+
+# Mesh scaling factor (e.g. mm to m : 0.001) 
+scale 0.001
+
+# Initial value of the temperature
+init 300.0
+
+# Diffusion coefficient
+D 1.11e-4
+
+# Density
+rho 8940
+
+# Specific Heat Capacity
+cp 385
+
+# Source term (heat generation per cubic meter)
+S 9.6e10
+
+# Boundary type and value for face groups 
+# Type 1 = Drichlet, Type 2 = Neumann,
+# Type 3 = Robin (Mixed)
+fg1 2 0.0
+fg2 1 348 2 
+fg3 2 0.0
+fg4 2 0.0
+fg5 3 298 30000
+fg6 3 298 30000
+
+# Number of iterations (Provide large number for steady state results)
+iter 10000000000
+
+# Time step
+dt 1e-10
+
+# Data write frequency
+dwf 10000
+
+# Number of Processors
+nprocs 2

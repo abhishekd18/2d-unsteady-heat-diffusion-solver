@@ -1,0 +1,244 @@
+% Latex-Beamer Template German Research School for Simulation Sciences
+% v0.1
+% this template is provided as is.
+% please report any problems to m.a.hermanns@grs-sim.de
+
+\RequirePackage{helvet}
+
+\mode<presentation>
+
+% No navigation symbols in handout or trans mode:
+\only<handout| trans>{\setbeamertemplate{navigation symbols}{}}
+
+%\beamersetleftmargin{1.7cm}
+\beamersetleftmargin{1.2cm}
+
+% reduced navigation symbol set
+\defbeamertemplate*{navigation symbols}{Grs}
+{%
+  \hbox{%
+    \hbox{\insertframenavigationsymbol}
+    \hbox{\insertsubsectionnavigationsymbol}
+    \hbox{\insertsectionnavigationsymbol}
+  }%
+}
+
+% Stock Photos
+\defbeamertemplate*{stock photo left}{default}[1][grs-stock1]
+{%
+  \includegraphics[height=20mm]{stock-images/#1}
+}
+
+\defbeamertemplate*{stock photo middle}{default}[1][grs-stock2]
+{%
+  \includegraphics[height=20mm]{stock-images/#1}
+}
+
+\defbeamertemplate*{stock photo right}{default}[1][grs-stock3]
+{%
+  \includegraphics[height=20mm]{stock-images/#1}
+}
+
+% Slide counter
+\defbeamertemplate*{slide counter}{showall}[1][Slide]
+{%
+{\usebeamercolor[fg]{date in head/foot}%
+#1~\insertframenumber\ \vrule width0.3pt height5pt\ \inserttotalframenumber%
+}%
+}
+\defbeamertemplate*{slide counter}{default}[1][Slide]
+{%
+{\usebeamercolor[fg]{date in head/foot}%
+#1~\insertframenumber%
+}%
+}
+\defbeamertemplate*{slide counter}{shownone}[1][Slide]
+{%
+}
+
+% Headline and footline
+\defbeamertemplate*{headline}{Grs}
+{%
+\begin{beamercolorbox}[leftskip=7.5mm,ht=10mm,dp=0mm]{header}
+\end{beamercolorbox}
+}
+
+\defbeamertemplate*{footline}{GrsTitle}
+{%
+  \begin{beamercolorbox}[leftskip=7.5mm,rightskip=7mm,ht=3mm,dp=0.0mm]{header}
+	\hfill%
+  \includegraphics[height=5mm]{fzj_rwth_logo}
+  %\hskip2mm%
+  %\includegraphics[height=4.5mm]{rwth_logo}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[leftskip=7.5mm,ht=3.5mm]{header}% empty line below footer
+  \end{beamercolorbox}
+}%
+
+\defbeamertemplate*{footline}{Grs}
+{%
+  \begin{beamercolorbox}[leftskip=7.5mm,rightskip=7mm,ht=3mm,dp=0.0mm]{header}
+	\usebeamercolor[fg]{date in head/foot}%
+	\usebeamertemplate*{slide counter}%
+	\hskip3.5mm%
+	\insertshortdate%
+	\hskip3.5mm%
+  \insertshortauthor%
+	\hfill%
+  \includegraphics[height=5mm]{fzj_rwth_logo}
+  %\hskip2mm%
+  %\includegraphics[height=4.5mm]{rwth_logo}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[leftskip=7.5mm,ht=3.5mm]{header}% empty line below footer
+  \end{beamercolorbox}
+}%
+
+
+% Background
+\defbeamertemplate*{background}{GrsTitle}
+{%
+}
+
+\defbeamertemplate*{background}{Grs}
+{%
+}
+
+\defbeamertemplate*{background canvas}{GrsTitle}
+{%
+  \begin{tikzpicture}[overlay,remember picture]%
+    \draw [draw=none] (current page.north west)++(6mm,-21mm) node[anchor=north west,fill=beamer@grsblue, rounded corners, minimum width=11.505cm, minimum height=6.5cm] {};%
+    \draw [very thin] (current page.north west) rectangle
+                      (current page.south east);
+  \end{tikzpicture}%
+}
+
+\defbeamertemplate*{background canvas}{Grs}
+{%
+\mode<handout> {
+    \begin{tikzpicture}[overlay,remember picture]
+    % Draw a thin border around slides
+    \draw [very thin] (current page.north west) rectangle
+                      (current page.south east);
+    \end{tikzpicture}
+}
+}
+
+% Sidebar
+\defbeamertemplate*{sidebar left}{GrsTitle}
+{%
+  \vskip-\headheight%
+  \vskip5mm%
+  \rlap{\ \hskip5mm \ \includegraphics[width=3.9cm]{grs_logo}}% titleframe-sized logo
+  \vfill%
+}
+
+\defbeamertemplate*{sidebar left}{Grs}
+{%
+  \vskip-\headheight%
+  \vskip5mm%
+  \rlap{\ \hskip5mm \ \includegraphics[width=2.71cm]{grs_logo}}% frame-sized logo
+  \vfill%
+}
+
+\defbeamertemplate*{sidebar right}{GrsTitle}
+{%
+}
+
+\defbeamertemplate*{sidebar right}{Grs}
+{%
+}
+
+\defbeamertemplate*{sidebar canvas left}{GrsTitle}
+{%
+}
+
+\defbeamertemplate*{sidebar canvas left}{Grs}
+{%
+}
+
+\defbeamertemplate*{sidebar canvas right}{Grs}
+{%
+}
+
+% Frame title: Grs
+\defbeamertemplate*{frametitle}{Grs}%
+{%
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \vskip4pt%
+  \begin{beamercolorbox}[leftskip=5.1mm,sep=0.65cm,wd=\the\@tempdima]{frametitle}
+    \if@tempswa\else\csname beamer@fte\endcsname\fi%
+    \strut{\usebeamerfont{frametitle}\insertframetitle}\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+      \fi
+    }%
+    \vskip-2ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+}
+
+
+\def\beamer@fteright{\vskip0.35cm\advance\leftskip by 1.7cm\advance\rightskip by 1.7cm}
+
+
+% Title slide
+\def\maketitle{%
+\setbeamertemplate{background canvas}[GrsTitle]
+\setbeamertemplate{sidebar canvas left}[GrsTitle]
+\setbeamertemplate{sidebar left}[GrsTitle]
+\setbeamertemplate{footline}[GrsTitle]
+\begin{frame}[t]
+\vskip-\headheight%
+\vbox{}%
+\vskip24mm%
+\vskip-44pt%
+\titlepage%
+\vfill%
+\mode<handout> {
+    \begin{tikzpicture}[overlay,remember picture]
+    % Draw a thin border around slides
+    \draw [very thin] (current page.north west) rectangle
+                      (current page.south east);
+    \end{tikzpicture}
+}
+\end{frame}
+\setbeamertemplate{footline}[Grs]
+\setbeamertemplate{sidebar left}[Grs]
+\setbeamertemplate{sidebar canvas left}[Grs]
+\setbeamertemplate{background canvas}[Grs]
+}
+
+% Part slide
+\def\makepart{%
+\setbeamertemplate{background canvas}[GrsTitle]
+\setbeamertemplate{sidebar canvas left}[GrsTitle]
+\setbeamertemplate{sidebar right}[GrsTitle]
+\setbeamertemplate{footline}{}
+\begin{frame}[t]
+\vskip-\headheight%
+\vbox{}%
+\vskip48mm%
+\vskip-44pt%
+\partpage%
+\vfill%
+\mode<handout> {
+    \begin{tikzpicture}[overlay,remember picture]
+    % Draw a thin border around slides
+    \draw [very thin] (current page.north west) rectangle
+                      (current page.south east);
+    \end{tikzpicture}
+}
+\end{frame}
+\setbeamertemplate{footline}[Grs]
+\setbeamertemplate{sidebar right}[Grs]
+\setbeamertemplate{sidebar canvas left}[Grs]
+\setbeamertemplate{background canvas}[Grs]
+}
+
+\mode
+<all>

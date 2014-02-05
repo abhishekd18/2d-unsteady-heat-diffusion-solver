@@ -1,0 +1,51 @@
+# Title of the simulation
+title Rectangular_Domain
+
+# Working directory "../run/" or "./"
+wdir ./
+
+# Name of the mesh information file
+minf ../../../trunk/mesh-Rectangle/finemesh/minf
+
+# Name of the coordinates file
+mxyz ../../../trunk/mesh-Rectangle/finemesh/mxyz
+
+# Name of the connectivity file 
+mien ../../../trunk/mesh-Rectangle/finemesh/mien
+
+# Name of the boundary information file 
+mrng ../../../trunk/mesh-Rectangle/finemesh/mrng
+
+# Name of the initial distribution file 
+data ../../../trunk/mesh-Rectangle/finemesh/pres
+
+# Initial value of the temperature
+init 300.0
+
+# Diffusion coefficient
+D 1.0
+
+# Source term (heat generation)
+S 0
+
+# Boundary type and value for face groups 
+# Type 1 = Drichlet, Type 2 = Neumann,
+# Type 3 = Robin (Mixed)
+fg1 1 1000.0 1.0
+fg2 1 300.0 1.0
+fg3 1 300.0 1.0
+fg4 1 1000.0 1.0
+#fg5 2 000
+#fg6 2 60000
+
+# Number of iterations
+iter 10000
+
+# Time step
+dt 1e-5
+
+# Data write frequency
+dwf 10000
+
+# Number of Processors
+nprocs 2

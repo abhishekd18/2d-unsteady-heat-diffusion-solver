@@ -1,0 +1,95 @@
+% Latex-Beamer Template German Research School for Simulation Sciences
+% v0.1
+% this template is provided as is
+% please report any problems to m.a.hermanns@grs-sim.de
+
+\mode<presentation>
+
+\setlength\leftmargini{2.75ex}% 2ex+0.75ex (1/2)
+\setlength\leftmarginii{2.75ex}
+\setlength\leftmarginiii{2.75ex}
+
+\setbeamersize{sidebar width left=3.5mm}
+
+\DeclareOptionBeamer{shadow}[true]{\def\beamer@themerounded@shadow{#1}}
+\ExecuteOptionsBeamer{shadow=false}
+\ProcessOptionsBeamer
+
+\setbeamertemplate{blocks}[rounded][shadow=\beamer@themerounded@shadow]
+
+% Title page: Grs
+\defbeamertemplate*{title page}{Grs}
+{%
+  \setbox1=\vbox{%
+    \phantom{\vrule width9mm height15mm}%
+    %\begin{beamercolorbox}[dp=13mm,left]{title}
+    \begin{beamercolorbox}[ht=1ex,dp=4.25ex,left]{title}
+      \begin{minipage}[t]{9cm}
+      \renewcommand{\baselinestretch}{1.2}
+      \begin{raggedright}
+      \usebeamerfont{title}\inserttitle\par%
+      \end{raggedright}
+      \renewcommand{\baselinestretch}{1.0}
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%    
+      \end{minipage}
+    \end{beamercolorbox}%
+ }%
+ \setbox2=\vbox{%
+    \vskip5mm\par
+    \usebeamertemplate{stock photo left}%\includegraphics[height=20mm]{grs-stock1}
+    \hskip3mm \usebeamertemplate{stock photo middle}%\includegraphics[height=20mm]{grs-stock2}
+    \hskip3mm \usebeamertemplate{stock photo right}%\includegraphics[height=20mm]{grs-stock3}\par
+    \vskip4mm\par
+    \begin{beamercolorbox}[8pt,left]{author}
+    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}\par%
+    {\usebeamerfont{date}\usebeamercolor[fg]{author}\insertdate}%
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+ }%
+ %\moveright6.2mm\box1\par%
+ \moveright4.1mm\box1\par%
+ \moveright4.1mm\box2\par%
+}
+
+
+% Part page: Grs
+\defbeamertemplate*{part page}{Grs}
+{%
+  \setbox1=\vbox{%
+    \begin{beamercolorbox}[sep=8pt,left]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+%        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\partname~\insertromanpartnumber:\ \insertpart\par}%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertpart\par}%
+      \fi%    
+    \end{beamercolorbox}%
+    \vskip2em\par
+    \begin{beamercolorbox}[sep=8pt,left]{author}
+    {\usebeamerfont{date}\usebeamercolor[fg]{author}\insertdate}%
+    \hskip0.5em%
+    {\usebeamercolor[fg]{author}\vrule width0.3pt}%
+    \hskip0.5em%
+    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}%
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+ }%
+ \moveleft6mm\box1%
+}
+
+% Itemize items, Grs
+%\defbeamertemplate*{itemize item}{Grs}{\tiny\raise.5ex\hbox{\vrule width 1ex height 1ex}\hskip1.5ex}
+\defbeamertemplate*{itemize item}{Grs}{\tiny\raise.5ex\hbox{\tikz \node [circle,fill=beamer@grsblue,inner sep=0pt,minimum size=1ex] {};}\hskip1.5ex}
+\defbeamertemplate*{itemize subitem}{Grs}{\TINY\raise1ex\hbox{\tikz \node [circle,fill=beamer@grsblue,inner sep=0pt,minimum size=1ex] {};}\hskip1.5ex}
+\defbeamertemplate*{itemize subsubitem}{Grs}{\TINY\raise1ex\hbox{\tikz \node [circle,fill=beamer@grsblue,inner sep=0pt,minimum size=1ex] {};}\hskip1.5ex}
+
+% Enumerate items, Grs
+\setbeamertemplate{enumerate items}[circle,inner sep=1pt]
+
+\mode
+<all>

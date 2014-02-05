@@ -1,0 +1,111 @@
+****************************************************************************************************
+2D PARALLEL EXPLICIT FEM SOLVER
+****************************************************************************************************
+Copyright (C) 2014  A. Emre Ongut 	  ongut@cats.rwth-aachen.de
+		    Abhishek Deshmukh     a.deshmukh@grs-sim.de
+		    Raghavan Lakshmanan   r.lakshmanan@grs-sim.de
+	 	    Mohsin Ali Chaudry    mohsin.chaudry@rwth-aachen.de
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU 
+General Public License as published by the Free Software Foundation, either version 3 of the 
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without 
+even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.  If not, 
+see <http://www.gnu.org/licenses/>.
+
+
+****************************************************************************************************
+DESCRIPTION OF THE CODE
+****************************************************************************************************
+The code solves 2D heat diffusion equation on unstructured mesh with triangular elements.
+It is based on linear finite element method. The solver is explicit one with forward euler time 
+discretization. It is possible to apply Dirichlet, Neumann or Mixed (Robin) type of boundary 
+conditions. The mesh files have to be in mixd format (mxyz, mien, minf, mrng). The sample input file
+is given below. There is a preprocessing utility decomposePar which decomposes the serial mesh files
+into mesh files per processor.
+
+****************************************************************************************************
+COMPILING AND USING THE CODE (IN LINUX)
+****************************************************************************************************
+* The code is organized into src, run and bin. "src" contains both decomposePar utility and solver.
+* The decomposePar utility is created into "bin" folder. You can copy solver executable also in bin.
+* Go to "src/decompose" in terminal and type "make" to generate "decomposePar" in bin.
+* Then go to "src/solver"
+* Check the Makefile and set the VTK library paths
+* Type "make" in the terminal
+* An executable named "2d_Unsteady_Diffusion" will be created in the current folder
+* Define the settings in input file "settings.in"
+* Go to run folder
+* First run "../bin/decomposePar. This will generate per processor mesh in current run folder
+* Then type "mpirun -n 4 ../src/solver/2d_Unsteady_Diffusion" to run the program in parallel.
+
+****************************************************************************************************
+EXAMPLE INPUT FILE (settings.in)
+****************************************************************************************************
+# Title of the simulation
+title Microchannel
+
+# Working directory "../run/" or "./"
+wdir ./
+
+# Name of the mesh information file
+minf pathtofile/minf
+
+# Name of the coordinates file
+mxyz pathtofile/mxyz
+
+# Name of the connectivity file 
+mien pathtofile/mien
+
+# Name of the boundary information file 
+mrng pathtofile/mrng
+
+# Name of the initial distribution file 
+data pathtofile/data
+
+# Write restart file (e.g. data for next simulation)
+restart no
+
+# Mesh scaling factor (e.g. mm to m : 0.001) 
+scale 0.001
+
+# Initial value of the temperature
+init 300.0
+
+# Diffusion coefficient
+D 1.11e-4
+
+# Density
+rho 8940
+
+# Specific Heat Capacity
+cp 385
+
+# Source term (heat generation per cubic meter)
+S 9.6e10
+
+# Boundary type and value for face groups 
+# Type 1 = Drichlet, Type 2 = Neumann,
+# Type 3 = Robin (Mixed)
+fg1 2 0.0
+fg2 3 298 2 
+fg3 2 0.0
+fg4 2 0.0
+fg5 3 298 30000
+fg6 3 298 30000
+
+# Number of iterations (Provide large number for steady state results)
+iter 10000000000
+
+# Time step
+dt 1e-10
+
+# Data write frequency
+dwf 10000
+
+# Number of Processors
+nprocs 4

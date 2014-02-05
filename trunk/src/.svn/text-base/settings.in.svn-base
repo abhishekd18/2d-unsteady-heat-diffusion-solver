@@ -1,0 +1,59 @@
+# Title of the simulation
+title Rectangle
+
+# Working directory "../run/" or "./"
+wdir ./
+
+# Name of the mesh information file
+minf ../mesh-Rectangle/finemesh/minf
+
+# Name of the coordinates file
+mxyz ../mesh-Rectangle/finemesh/mxyz
+
+# Name of the connectivity file 
+mien ../mesh-Rectangle/finemesh/mien
+
+# Name of the boundary information file 
+mrng ../mesh-Rectangle/finemesh/mrng
+
+# Name of the initial distribution file 
+data ../mesh-Rectangle/finemesh/data
+
+# Write restart file (e.g. data for next simulation)
+restart no
+
+# Mesh scaling factor (e.g. mm to m : 0.001) 
+scale 1.0
+
+# Initial value of the temperature
+init 300.0
+
+# Diffusion coefficient
+D 1.0
+
+# Density
+rho 1.0
+
+# Specific Heat Capacity
+cp 1.0
+
+# Source term (heat generation per cubic meter)
+S 0
+
+# Boundary type and value for face groups 
+# Type 1 = Drichlet, Type 2 = Neumann,
+# Type 3 = Robin (Mixed)
+fg1 1 1000
+fg2 1 300 
+fg3 1 300
+fg4 1 1000
+#fg5 3 298 30000
+#fg6 3 298 30000
+
+# Number of iterations
+iter 10000
+
+# Time step
+dt 1e-5
+# Data write frequency
+dwf 100

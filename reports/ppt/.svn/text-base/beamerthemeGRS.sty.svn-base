@@ -1,0 +1,15 @@
+% Latex-Beamer Template German Research School for Simulation Sciences GmbH
+% v0.1
+% this template is provided as is
+% please report any problems to m.a.hermanns@grs-sim.de
+
+\mode<presentation>
+
+\usefonttheme{GRS}
+\usecolortheme{GRS}
+\useinnertheme{GRS}
+\useoutertheme{GRS}
+
+\setbeamertemplate{slide counter}[default][Slide]
+
+\mode<all>

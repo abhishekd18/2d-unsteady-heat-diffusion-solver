@@ -1,0 +1,68 @@
+% Latex-Beamer Template German Research School for Simulation Sciences GmbH
+% v0.1
+% this template is provided as is.
+% please report any problems to m.a.hermanns@grs-sim.de
+
+\mode<presentation>
+
+% original blue from the logo
+\definecolor{beamer@grsblue}{cmyk}{0.7,0.3,0,0.20}
+
+% different shades of blue
+\definecolor{beamer@grsblue15}{cmyk}{0.7,0.3,0,0.15}
+\definecolor{beamer@grsblue20}{cmyk}{0.7,0.3,0,0.20}
+\definecolor{beamer@grsblue30}{cmyk}{0.7,0.3,0,0.30}
+\definecolor{beamer@grsblue45}{cmyk}{0.7,0.3,0,0.45}
+\definecolor{beamer@grsblue70}{cmyk}{0.7,0.3,0,0.70}
+
+% color triad for maximal contrast
+\definecolor{beamer@grslightgreen}{cmyk}{0.01,0,0.8,0.40}
+\definecolor{beamer@grsdarkgreen}{cmyk}{0.01,0,0.75,0.50}
+\definecolor{beamer@grslightred}{cmyk}{0,0.59,0.60,0.17}
+\definecolor{beamer@grsred}{cmyk}{0,0.59,0.60,0.17}
+\definecolor{beamer@grsdarkred}{cmyk}{0,0.74,0.74,0.29}
+\definecolor{beamer@grslightbeige}{cmyk}{0,.55,.8,0}
+\definecolor{beamer@grsbeige}{cmyk}{0,.28,.7,.2}
+\definecolor{beamer@grsdarkbeige}{cmyk}{0,.36,.9,.5}
+\definecolor{beamer@grsorange}{cmyk}{0,.55,.8,0}
+
+\definecolor{beamer@grsgray80}{cmyk}{0,0,0,0.8}
+\definecolor{beamer@grsgray50}{cmyk}{0,0,0,0.5}
+\definecolor{beamer@grsgray30}{cmyk}{0,0,0,0.3}
+\definecolor{beamer@grswhite}{cmyk}{0,0,0,0}
+
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{alerted text}{fg=beamer@grslightred}
+\setbeamercolor{example text}{fg=beamer@grsdarkgreen}
+
+\setbeamercolor{structure}{fg=beamer@grsblue20}
+\setbeamercolor{grsblue15}{bg=beamer@grsblue15}
+\setbeamercolor{grsblue20}{bg=beamer@grsblue20}
+\setbeamercolor{grsblue30}{bg=beamer@grsblue30}
+\setbeamercolor{grsblue45}{bg=beamer@grsblue45}
+\setbeamercolor{grsblue70}{bg=beamer@grsblue70}
+
+\setbeamercolor{grsgray80}{bg=beamer@grsgray80}
+\setbeamercolor{grsgray50}{bg=beamer@grsgray50}
+\setbeamercolor{grsgray30}{bg=beamer@grsgray30}
+
+\setbeamercolor{grswhite}{bg=beamer@grswhite}
+
+\setbeamercolor{title}{fg=beamer@grswhite}
+\setbeamercolor{date}{fg=beamer@grswhite}
+\setbeamercolor{author}{fg=beamer@grswhite}
+\setbeamercolor{date in head/foot}{fg=beamer@grsblue}
+
+\setbeamercolor{part name}{fg=beamer@grsblue}
+\setbeamercolor{part title}{fg=beamer@grsblue}
+
+% Block stuff
+\setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg}
+\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=alerted text.fg}
+\setbeamercolor{block title example}{use=example text,fg=white,bg=example text.fg}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=beamer@grslightred!10!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=beamer@grslightgreen!10!bg}
+
+\mode<all>

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/ad738098_SiSc_Lab/!svn/ver/25/branch/parallel_wo_partitioning/run
+END
+load_time.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/ad738098_SiSc_Lab/!svn/ver/25/branch/parallel_wo_partitioning/run/load_time.xml
+END
+load.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/ad738098_SiSc_Lab/!svn/ver/25/branch/parallel_wo_partitioning/run/load.xml
+END
+generate_paraview.sh
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/ad738098_SiSc_Lab/!svn/ver/25/branch/parallel_wo_partitioning/run/generate_paraview.sh
+END
+settings.in
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/ad738098_SiSc_Lab/!svn/ver/25/branch/parallel_wo_partitioning/run/settings.in
+END

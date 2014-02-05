@@ -1,0 +1,53 @@
+% LaTeX CMYK (where possible) color definitions for 
+% German Research School for Simulation Sciences GmbH
+%
+% Contributors: Marc-Andre Hermanns <m.a.hermanns@grs-sim.de>
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}[2003/12/01]
+\ProvidesPackage{grscolors}[2010/08/23 v0.1 grscolors package]
+\RequirePackage{xcolor}
+
+% original blue from the logo
+\definecolor{grsblue}{cmyk}{0.7,0.3,0,0.20}
+
+% different shades of blue
+\colorlet{grsblue20}[cmyk]{grsblue!30!white}
+\colorlet{grsblue30}[cmyk]{grsblue!50!white}
+\colorlet{grsblue40}[cmyk]{grsblue!70!white}
+\colorlet{grsblue50}[cmyk]{grsblue}
+\colorlet{grsblue60}[cmyk]{grsblue!70!black}
+\colorlet{grsblue70}[cmyk]{grsblue!50!black}
+\colorlet{grsblue80}[cmyk]{grsblue!30!black}
+\colorlet{grsblue90}[cmyk]{grsblue!10!black}
+
+% color triad for maximal contrast
+\definecolor{grslightgreen}{cmyk}{0.01,0,0.8,0.30}
+\definecolor{grsdarkgreen}{cmyk}{0.01,0,0.8,0.60}
+
+\definecolor{grslightred}{cmyk}{0,0.59,0.60,0.17}
+\definecolor{grsdarkred}{cmyk}{0,0.59,0.60,0.57}
+
+\definecolor{grslightbrown}{cmyk}{0,.24,.45,.17}
+\definecolor{grsdarkbrown}{cmyk}{0,.36,.9,.5}
+
+\definecolor{grslightorange}{cmyk}{0,.55,.8,0}
+\colorlet{grsdarkorange}[cmyk]{grslightorange!80!black}
+%\definecolor{grsdarkorange}{cmyk}{0,.55,.8,.25}
+
+% different shades of gray
+\definecolor{grsgray80}{cmyk}{0,0,0,0.8}
+\definecolor{grsgray70}{cmyk}{0,0,0,0.7}
+\definecolor{grsgray60}{cmyk}{0,0,0,0.6}
+\definecolor{grsgray50}{cmyk}{0,0,0,0.5}
+\definecolor{grsgray40}{cmyk}{0,0,0,0.4}
+\definecolor{grsgray30}{cmyk}{0,0,0,0.3}
+\definecolor{grsgray20}{cmyk}{0,0,0,0.2}
+
+% redefine standard colors to GRS color space
+\definecolor{red}{named}{grslightred}
+\definecolor{blue}{named}{grsblue}
+\definecolor{green}{named}{grslightgreen}
+%\definecolor{yellow}{named}{grsyellow}
+\definecolor{orange}{named}{grslightorange}
+
