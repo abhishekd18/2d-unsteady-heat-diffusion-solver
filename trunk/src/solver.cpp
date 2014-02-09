@@ -463,7 +463,7 @@ void femSolver::explicitSolver()
 		// Get current Temperature of node
 		T_curr = mesh->getNode(node)->getT();
 
-		// Calculate the square difference between previous and current temperature and add it to sum
+		// Calculate the rate of change of temperature
 		rate = fabs((T_curr - T_prev)/dt);
 		if(rate>max_rate)	max_rate = rate;
 		if(T_curr>T_max)	T_max = T_curr; 
